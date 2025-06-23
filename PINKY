@@ -1,0 +1,390 @@
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+
+        if not RunService:IsClient() then return end
+
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+        local effectPart = Instance.new("Part")
+        effectPart.Anchored = true
+        effectPart.CanCollide = false
+        effectPart.Transparency = 1
+        effectPart.Size = Vector3.new(1, 1, 1)
+        effectPart.Parent = workspace
+
+        
+        local lookVector = humanoidRootPart.CFrame.LookVector
+        local position = humanoidRootPart.Position + (lookVector * 5)
+        effectPart.CFrame = CFrame.new(position, position + lookVector)
+
+        local particles = {}
+        local beams = {}
+                do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(18.585592, 18.585592)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.269223, 0.800000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+                particle.SpreadAngle = Vector2.new(46.000000, 46.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 1.000000, 1.000000)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 1.000000, 1.000000))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = true
+                particle.TimeScale = 1
+                particle.VelocitySpread = 46
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(0.623241, 0.623241)
+                particle.Brightness = 0.5
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 7.293760), NumberSequenceKeypoint.new(0.200000, 9.692929), NumberSequenceKeypoint.new(0.300000, 11.274978), NumberSequenceKeypoint.new(0.400000, 12.427202), NumberSequenceKeypoint.new(0.500000, 13.298861), NumberSequenceKeypoint.new(0.600000, 13.965413), NumberSequenceKeypoint.new(0.700000, 14.470162), NumberSequenceKeypoint.new(0.800000, 14.838873), NumberSequenceKeypoint.new(0.900000, 15.084605), NumberSequenceKeypoint.new(1.000000, 15.198697)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(100.000000, 300.000000)
+                particle.ZOffset = 0
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 5.57158899307251
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 0
+                particle.Texture = "rbxassetid://15612601268"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 1
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(11.589435, 11.589435)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.120000, 0.120000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid2x2
+                particle.SpreadAngle = Vector2.new(360.000000, 360.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityParallel
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 0.149020, 0.729412)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 0.149020, 0.729412))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 360
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(0.003639, 0.003639)
+                particle.Brightness = 5
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 9.216413), NumberSequenceKeypoint.new(0.200000, 12.248010), NumberSequenceKeypoint.new(0.300000, 14.247089), NumberSequenceKeypoint.new(0.400000, 15.703045), NumberSequenceKeypoint.new(0.500000, 16.804472), NumberSequenceKeypoint.new(0.600000, 17.646732), NumberSequenceKeypoint.new(0.700000, 18.284531), NumberSequenceKeypoint.new(0.800000, 18.750437), NumberSequenceKeypoint.new(0.900000, 19.060949), NumberSequenceKeypoint.new(1.000000, 19.205112)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 1.396333932876587
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 9.614999771118164
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(180.000000, 180.000000)
+                particle.ShapePartial = 35
+                particle.Texture = "rbxassetid://15347950119"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 0.800000011920929
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(32.115906, 32.115906)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.200000, 0.700000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+                particle.SpreadAngle = Vector2.new(34.000000, 34.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 1.000000), NumberSequenceKeypoint.new(0.118306, 0.000000), NumberSequenceKeypoint.new(0.173149, 0.412500), NumberSequenceKeypoint.new(0.278545, 0.743750), NumberSequenceKeypoint.new(0.400251, 0.912500), NumberSequenceKeypoint.new(0.607277, 0.981250), NumberSequenceKeypoint.new(1.000000, 1.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 1.000000, 1.000000)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 1.000000, 1.000000))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 34
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(1.958206, 1.958206)
+                particle.Brightness = 1
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 13.262022), NumberSequenceKeypoint.new(0.200000, 17.624361), NumberSequenceKeypoint.new(0.300000, 20.500948), NumberSequenceKeypoint.new(0.400000, 22.596004), NumberSequenceKeypoint.new(0.500000, 24.180914), NumberSequenceKeypoint.new(0.600000, 25.392885), NumberSequenceKeypoint.new(0.700000, 26.310656), NumberSequenceKeypoint.new(0.800000, 26.981070), NumberSequenceKeypoint.new(0.900000, 27.427879), NumberSequenceKeypoint.new(1.000000, 27.635328)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 0
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 9.627706527709961
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 0
+                particle.Texture = "rbxassetid://15619812568"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 1
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(32.115906, 32.115906)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.200000, 0.300000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+                particle.SpreadAngle = Vector2.new(34.000000, 34.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 1.000000), NumberSequenceKeypoint.new(0.118306, 0.000000), NumberSequenceKeypoint.new(0.173149, 0.412500), NumberSequenceKeypoint.new(0.278545, 0.743750), NumberSequenceKeypoint.new(0.400251, 0.912500), NumberSequenceKeypoint.new(0.607277, 0.981250), NumberSequenceKeypoint.new(1.000000, 1.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 1.000000, 1.000000)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 1.000000, 1.000000))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 34
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(2.505074, 2.505074)
+                particle.Brightness = 24
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 16.965706), NumberSequenceKeypoint.new(0.200000, 22.546316), NumberSequenceKeypoint.new(0.300000, 26.226246), NumberSequenceKeypoint.new(0.400000, 28.906385), NumberSequenceKeypoint.new(0.500000, 30.933916), NumberSequenceKeypoint.new(0.600000, 32.484356), NumberSequenceKeypoint.new(0.700000, 33.658432), NumberSequenceKeypoint.new(0.800000, 34.516075), NumberSequenceKeypoint.new(0.900000, 35.087662), NumberSequenceKeypoint.new(1.000000, 35.353046)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 0
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 9.627706527709961
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 0
+                particle.Texture = "rbxassetid://15619789118"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 1
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(1.000000, 1.000000)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.200000, 0.200000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.None
+                particle.SpreadAngle = Vector2.new(35.000000, 35.000000)
+                particle.LockedToPart = false
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.427854, 0.850000), NumberSequenceKeypoint.new(0.570891, 0.962500), NumberSequenceKeypoint.new(1.000000, 1.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityPerpendicular
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 1.000000, 1.000000)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 1.000000, 1.000000))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 35
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(0.405883, 0.405883)
+                particle.Brightness = 0
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 19.478077), NumberSequenceKeypoint.new(0.200000, 25.885080), NumberSequenceKeypoint.new(0.300000, 30.109962), NumberSequenceKeypoint.new(0.400000, 33.186996), NumberSequenceKeypoint.new(0.500000, 35.514767), NumberSequenceKeypoint.new(0.600000, 37.294800), NumberSequenceKeypoint.new(0.700000, 38.642742), NumberSequenceKeypoint.new(0.800000, 39.627384), NumberSequenceKeypoint.new(0.900000, 40.283623), NumberSequenceKeypoint.new(1.000000, 40.588306)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 0
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 6
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 1
+                particle.Texture = "rbxassetid://15603804067"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Right
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Box
+                particle.LightEmission = -0.30000001192092896
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(0.000000, 0.000000)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.200000, 0.700000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid2x2
+                particle.SpreadAngle = Vector2.new(100.000000, 100.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Orientation = Enum.ParticleOrientation.FacingCamera
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 1.000000, 1.000000)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 1.000000, 1.000000))})
+                particle.Drag = 4
+                particle.FlipbookStartRandom = true
+                particle.TimeScale = 1
+                particle.VelocitySpread = 100
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.600000)})
+                particle.Speed = NumberRange.new(69.000000, 150.000000)
+                particle.Brightness = 0.5
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.220423, 1.812500), NumberSequenceKeypoint.new(0.359900, 1.125000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, -100.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(20.000000, 400.000000)
+                particle.ZOffset = 6.435050964355469
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 5.759999752044678
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 23
+                particle.Texture = "rbxassetid://13843573724"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.PingPong
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 0
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(26.597759, 26.597759)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.071429, 0.214286)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+                particle.SpreadAngle = Vector2.new(360.000000, 360.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Orientation = Enum.ParticleOrientation.VelocityParallel
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 0.149020, 0.729412)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 0.149020, 0.729412))})
+                particle.Drag = 47.599998474121094
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 360
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, -0.862500), NumberSequenceKeypoint.new(0.531756, 1.162500), NumberSequenceKeypoint.new(1.000000, 3.000000)})
+                particle.Speed = NumberRange.new(217.466812, 652.400452)
+                particle.Brightness = 5
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.303861, 10.219839), NumberSequenceKeypoint.new(0.772105, 5.109920), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 0.9296674132347107
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 22.06718635559082
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(90.000000, 90.000000)
+                particle.ShapePartial = 14
+                particle.Texture = "rbxassetid://14271209798"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 0.699999988079071
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(1.200000, 1.200000)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.100000, 0.100000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.None
+                particle.SpreadAngle = Vector2.new(0.000000, 0.000000)
+                particle.LockedToPart = false
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Orientation = Enum.ParticleOrientation.FacingCamera
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 0.149020, 0.729412)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 0.149020, 0.729412))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 0
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 1.425000)})
+                particle.Speed = NumberRange.new(0.154441, 0.154441)
+                particle.Brightness = 35
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.250311, 29.963200), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 6.435050964355469
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 7.199999809265137
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(0.000000, 0.000000)
+                particle.ShapePartial = 23
+                particle.Texture = "rbxassetid://15619620107"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 0.5
+                table.insert(particles, particle)
+            end
+                    do
+                local particle = Instance.new("ParticleEmitter")
+                particle.Parent = effectPart
+                        particle.ShapeStyle = Enum.ParticleEmitterShapeStyle.Volume
+                particle.FlipbookFramerate = NumberRange.new(5.029718, 5.029718)
+                particle.LightInfluence = 0
+                particle.Lifetime = NumberRange.new(0.650000, 0.650000)
+                particle.FlipbookLayout = Enum.ParticleFlipbookLayout.None
+                particle.SpreadAngle = Vector2.new(15.000000, 15.000000)
+                particle.LockedToPart = true
+                particle.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.426617, 0.925000), NumberSequenceKeypoint.new(0.702736, 0.981250), NumberSequenceKeypoint.new(1.000000, 1.000000)})
+                particle.Orientation = Enum.ParticleOrientation.FacingCamera
+                particle.Color = ColorSequence.new({ColorSequenceKeypoint.new(0.000000, Color3.new(1.000000, 0.149020, 0.729412)), ColorSequenceKeypoint.new(1.000000, Color3.new(1.000000, 0.149020, 0.729412))})
+                particle.Drag = 0
+                particle.FlipbookStartRandom = false
+                particle.TimeScale = 1
+                particle.VelocitySpread = 15
+                particle.Squash = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(1.000000, 0.000000)})
+                particle.Speed = NumberRange.new(0.098715, 0.098715)
+                particle.Brightness = 10
+                particle.Size = NumberSequence.new({NumberSequenceKeypoint.new(0.000000, 0.000000), NumberSequenceKeypoint.new(0.100000, 10.399238), NumberSequenceKeypoint.new(0.200000, 13.524188), NumberSequenceKeypoint.new(0.300000, 15.446155), NumberSequenceKeypoint.new(0.400000, 16.742981), NumberSequenceKeypoint.new(0.500000, 17.639143), NumberSequenceKeypoint.new(0.600000, 18.250586), NumberSequenceKeypoint.new(0.700000, 18.647484), NumberSequenceKeypoint.new(0.800000, 18.877989), NumberSequenceKeypoint.new(0.900000, 18.980894), NumberSequenceKeypoint.new(1.000000, 19.000000)})
+                particle.Enabled = false
+                particle.Acceleration = Vector3.new(0.000000, 0.000000, 0.000000)
+                particle.RotSpeed = NumberRange.new(0.000000, 0.000000)
+                particle.ZOffset = 0
+                particle.ShapeInOut = Enum.ParticleEmitterShapeInOut.Outward
+                particle.Rate = 2.5130159854888916
+                particle.VelocityInheritance = 0
+                particle.Rotation = NumberRange.new(-360.000000, 360.000000)
+                particle.ShapePartial = 0
+                particle.Texture = "rbxassetid://15556583761"
+                particle.FlipbookMode = Enum.ParticleFlipbookMode.OneShot
+                particle.EmissionDirection = Enum.NormalId.Left
+                particle.FlipbookIncompatible = "Particle texture must be 1024 by 1024 to use flipbooks."
+                particle.Shape = Enum.ParticleEmitterShape.Disc
+                particle.LightEmission = 1
+                table.insert(particles, particle)
+            end
+                
+        for _, particle in ipairs(particles) do
+            particle.Enabled = true
+        end
+
+        
+        for _, beam in ipairs(beams) do
+            beam.Enabled = true
+        end
+
+        
+        local maxLifetime = 0
+        for _, particle in ipairs(particles) do
+            maxLifetime = math.max(maxLifetime, particle.Lifetime.Max)
+        end
+
+        
+        if maxLifetime == 0 then maxLifetime = 5 end
+
+        
+        task.wait(maxLifetime * 1.5)
+
+        
+        effectPart:Destroy()
+    
